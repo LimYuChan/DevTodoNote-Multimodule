@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_title">DevTodoNote</string>
+    <string name="auth_description">개발을 조금 더 계획적으로\n진행할 수 있도록 도와주는 앱 입니다.</string>
+    <string name="login_with_github">Github 로그인</string>
+    <string name="error_message_not_match_statekey">유효하지 않은 인증입니다. 잠시후 다시 시도해주세요.</string>
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="note"
+            type="com.note.note.domain.model.Note" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_root"
+        android:layout_marginVertical="@dimen/spacing_small"
+        android:layout_marginHorizontal="@dimen/spacing_large"
+        app:cardBackgroundColor="@color/shape_background"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_large"
+            android:paddingVertical="@dimen/spacing_mid">
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_branch"
+                android:text="@{note.content.branchName}"
+                style="@style/RegularTextView"
+                app:baseTextSizeAsPx="@integer/size_12pt"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Work-1"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_content"
+                android:text="@{note.content.content}"
+                app:baseTextSizeAsPx="@integer/size_14pt"
+                style="@style/BoldTextView"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_marginTop="@dimen/spacing_small"
+                tools:text="content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_branch"/>
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_branch_state"
+                app:baseTextSizeAsPx="@integer/size_14pt"
+                android:alpha=".8"
+                style="@style/RegularTextView"
+                android:paddingStart="4dp"
+                tools:text="merge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_branch_state_icon"
+                app:layout_constraintBottom_toBottomOf="@id/item_branch_state_icon"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="24dp"
+                android:id="@+id/item_branch_state_icon"
+                android:src="@drawable/ic_branch"
+                app:layout_constraintEnd_toStartOf="@id/item_branch_state"
+                app:layout_constraintTop_toBottomOf="@id/item_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

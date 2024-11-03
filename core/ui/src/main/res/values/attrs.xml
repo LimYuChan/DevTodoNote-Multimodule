@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseTextSize">
+        <attr name="baseTextSizeAsPx" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="AdaptiveTextView">
+        <attr name="basePaddingTopAsPx" format="integer" />
+        <attr name="basePaddingBottomAsPx" format="integer" />
+        <attr name="baseTextSizeAsPx" />
+    </declare-styleable>
+
+    <declare-styleable name="AdaptiveEditText">
+        <attr name="baseTextSizeAsPx" />
+    </declare-styleable>
+
+    <declare-styleable name="ToolbarView">
+        <attr name="toolbarTitle" format="reference"/>
+        <attr name="toolbarMoreButtonIcon" format="reference"/>
+        <attr name="toolbarDividerVisible" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="StandardButtonView">
+        <attr name="text" format="string|reference" />
+        <attr name="loading" format="boolean" />
+        <attr name="enabled" format="boolean" />
+        <attr name="outlineStyle" format="boolean" />
+    </declare-styleable>
+
+</resources>

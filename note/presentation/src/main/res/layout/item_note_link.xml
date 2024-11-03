@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="linkUi"
+            type="com.note.note.presentation.content.model.NoteLinkUi" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_small"
+        android:minHeight="60dp"
+        app:cardBackgroundColor="@color/shape_background"
+        app:cardCornerRadius="@dimen/radius_medium">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:elevation="3dp"
+            android:indeterminate="@{linkUi.loading}"
+            android:visibility="@{linkUi.loading ? View.VISIBLE : View.GONE}"
+            app:indicatorColor="@color/white"
+            tools:visibility="gone"
+            app:indicatorSize="20dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_small"
+            android:visibility="@{linkUi.loading ? View.GONE : View.VISIBLE}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/shape_solid_radius_12"
+                tools:tint="@color/default_text" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="@dimen/spacing_small"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/btn_remove"/>
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:id="@+id/tv_title"
+                style="@style/BoldTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_mid"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{linkUi.link.title}"
+                app:baseTextSizeAsPx="@integer/size_14pt"
+                app:layout_constraintEnd_toStartOf="@id/btn_remove"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/dummy_middle" />
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:id="@+id/tv_link"
+                style="@style/RegularTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{linkUi.link.link}"
+                android:textColor="@color/link"
+                app:baseTextSizeAsPx="@integer/size_12pt"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                tools:text="@string/dummy_short" />
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:id="@+id/tv_description"
+                style="@style/RegularTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{linkUi.link.description}"
+                app:baseTextSizeAsPx="@integer/size_12pt"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_link"
+                tools:text="@string/dummy_middle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

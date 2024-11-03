@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="noteImage"
+            type="com.note.note.domain.model.NoteImage" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="@dimen/image_item"
+        android:layout_height="@dimen/image_item"
+        android:layout_marginHorizontal="4dp"
+        app:cardCornerRadius="@dimen/radius_medium">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_content"
+            android:scaleType="centerCrop"
+            tools:src="@color/primary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background50" />
+
+        <ImageButton
+            android:id="@+id/ic_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:contentDescription="@string/image_remove"
+            android:padding="@dimen/spacing_mid"
+            android:src="@drawable/ic_remove" />
+
+        <ImageButton
+            android:id="@+id/ic_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@null"
+            android:contentDescription="@string/image_view"
+            android:padding="@dimen/spacing_mid"
+            android:src="@drawable/ic_view_image" />
+    </androidx.cardview.widget.CardView>
+</layout>

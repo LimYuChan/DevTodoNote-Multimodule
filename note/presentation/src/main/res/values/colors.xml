@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="link">#1E90FF</color>
+
+    <color name="commit">#5E24FF</color>
+    <color name="merge">#0BB407</color>
+</resources>

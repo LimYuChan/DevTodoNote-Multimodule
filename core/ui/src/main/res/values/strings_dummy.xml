@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blank_text"> </string>
+    <string name="dummy_short">Dummy</string>
+    <string name="dummy_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+    <string name="dummy_title">Title</string>
+    <string name="dummy_message">Message</string>
+
+</resources>

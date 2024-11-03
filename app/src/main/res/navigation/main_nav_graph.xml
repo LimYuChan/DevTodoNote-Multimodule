@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/auth_nav_graph">
+
+    <include app:graph="@navigation/auth_nav_graph"/>
+    <include app:graph="@navigation/home_nav_graph"/>
+    <include app:graph="@navigation/note_nav_graph"/>
+
+    <action
+        android:id="@+id/action_auth_to_home"
+        app:destination="@id/home_nav_graph"
+        app:popUpTo="@navigation/auth_nav_graph"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"/>
+
+    <action
+        android:id="@+id/action_home_to_auth"
+        app:destination="@id/note_nav_graph"/>
+</navigation>

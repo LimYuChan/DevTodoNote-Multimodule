@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="com.note.auth.presentation.AuthViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85"
+            android:id="@+id/guide_bottom"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_large"
+            app:layout_constraintBottom_toBottomOf="@id/guide_bottom">
+
+            <com.note.core.ui.widget.StandardButtonView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/login_with_github"
+                android:id="@+id/btn_auth"
+                app:loading="@{model.state.loggingIn}"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@id/btn_auth"
+                android:id="@+id/tv_description"
+                android:text="@string/auth_description"
+                style="@style/RegularTextView"
+                android:layout_marginBottom="@dimen/spacing_extra"
+                app:baseTextSizeAsPx="@integer/size_14pt"/>
+
+            <com.note.core.ui.widget.AdaptiveTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auth_title"
+                style="@style/ExtraBoldTextView"
+                app:baseTextSizeAsPx="@integer/size_33pt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_description"
+                android:layout_marginBottom="@dimen/spacing_large"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

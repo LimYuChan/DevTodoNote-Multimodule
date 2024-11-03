@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Common strings-->
+    <string name="app_name">DevSurfer</string>
+    <string name="retry_load_paging">Retry</string>
+    <string name="error_message_disk_full">디스크 용량이 가득 차서 저장하지 못했습니다.</string>
+    <string name="error_message_sql_exception">데이터를 처리하는 중 문제가 발생했습니다.</string>
+    <string name="error_message_wrong_url_format">잘못된 URL 형식입니다.</string>
+    <string name="error_message_unsupported_data_type">이 데이터 형식은 지원되지 않습니다.</string>
+
+    <string name="cancel">취소</string>
+    <string name="confirm">확인</string>
+    <string name="error_message_data_parsing_failed">데이터를 파싱하지 못했습니다.</string>
+    <string name="error_message_not_found_user">사용자 정보를 찾을 수 없습니다.</string>
+</resources>

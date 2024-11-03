@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repo"
+            type="com.note.home.domain.model.Repository" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackground"
+        android:paddingHorizontal="@dimen/spacing_large"
+        tools:background="@color/background">
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_name"
+            style="@style/BoldTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_extra"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="4dp"
+            android:text="@{repo.name}"
+            app:baseTextSizeAsPx="@integer/size_16pt"
+            app:layout_constraintEnd_toStartOf="@id/tv_repo_access"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/dummy_middle" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_description"
+            style="@style/RegularTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="4dp"
+            android:alpha=".8"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{repo.description}"
+            android:visibility="@{repo.description.empty ? View.GONE : View.VISIBLE}"
+            app:baseTextSizeAsPx="@integer/size_12pt"
+            app:layout_constraintEnd_toStartOf="@id/tv_repo_access"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_repo_name"
+            tools:text="demo view repository description" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_access"
+            style="@style/RegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_solid_radius_12"
+            android:backgroundTint="@{repo.private == true ? @color/shape_private : @color/shape_public}"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="@{repo.private == true ? @string/repo_private : @string/repo_public}"
+            android:textColor="@color/white"
+            app:baseTextSizeAsPx="@integer/size_14pt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/repo_private" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_language"
+            style="@style/RegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:alpha=".8"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="4dp"
+            android:text="@{repo.language}"
+            android:textAlignment="gravity"
+            android:visibility="@{repo.language.empty ? View.GONE : View.VISIBLE}"
+            app:baseTextSizeAsPx="@integer/size_12pt"
+            app:drawableStartCompat="@drawable/oval_language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_repo_description"
+            tools:text="kotlin" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_default_branch_title"
+            style="@style/RegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repo_default_branch"
+            app:baseTextSizeAsPx="@integer/size_12pt"
+            app:layout_constraintBottom_toBottomOf="@id/tv_repo_language"
+            app:layout_constraintStart_toEndOf="@id/tv_repo_language"
+            app:layout_constraintTop_toTopOf="@id/tv_repo_language" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_default_branch"
+            style="@style/BoldTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:alpha=".8"
+            android:text="@{repo.defaultBranch}"
+            app:baseTextSizeAsPx="@integer/size_12pt"
+            app:layout_constraintBottom_toBottomOf="@id/tv_repo_language"
+            app:layout_constraintStart_toEndOf="@id/tv_repo_default_branch_title"
+            app:layout_constraintTop_toTopOf="@id/tv_repo_language"
+            tools:text="main" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_repo_updated_at"
+            style="@style/BoldTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:baseTextSizeAsPx="@integer/size_12pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_repo_language"
+            tools:text="6분전 마지막 업데이트" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_extra"
+            app:dividerColor="@color/shape_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_repo_updated_at" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

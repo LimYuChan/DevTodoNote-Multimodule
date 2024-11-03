@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.note.core.ui.dialog.input.InputTextDialogItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_solid_radius_12"
+        android:backgroundTint="@color/shape_background"
+        android:padding="@dimen/spacing_large">
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_title"
+            style="@style/BoldTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@{item.title}"
+            android:textAlignment="gravity"
+            android:visibility="@{item.title.empty ? View.GONE : View.VISIBLE}"
+            app:baseTextSizeAsPx="@integer/size_16pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/dummy_title" />
+
+        <com.note.core.ui.widget.AdaptiveTextView
+            android:id="@+id/tv_message"
+            style="@style/RegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@{item.message}"
+            android:visibility="@{item.message.empty ? View.GONE : View.VISIBLE}"
+            app:baseTextSizeAsPx="@integer/size_16pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="@string/dummy_message" />
+
+
+        <com.note.core.ui.widget.AdaptiveEditText
+            android:id="@+id/et_input"
+            style="@style/RegularTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:hint="@{item.hint}"
+            android:text="@{item.text}"
+            android:textColorHint="@color/default_text"
+            app:baseTextSizeAsPx="@integer/size_14pt"
+            app:layout_constraintTop_toBottomOf="@id/tv_message"
+            tools:hint="@string/dummy_middle" />
+
+        <com.note.core.ui.widget.StandardButtonView
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_mid"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:paddingVertical="@dimen/spacing_large"
+            app:layout_constraintEnd_toStartOf="@id/btn_confirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_input"
+            app:outlineStyle="true"
+            tools:text="@string/cancel" />
+
+        <com.note.core.ui.widget.StandardButtonView
+            android:id="@+id/btn_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:paddingVertical="@dimen/spacing_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_cancel"
+            app:layout_constraintTop_toTopOf="@id/btn_cancel"
+            tools:text="@string/confirm" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

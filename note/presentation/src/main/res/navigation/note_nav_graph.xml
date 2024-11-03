@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/note_nav_graph"
+    app:startDestination="@id/noteHomeFragment">
+
+    <fragment
+        android:id="@+id/noteHomeFragment"
+        android:name="com.note.note.presentation.home.NoteHomeFragment"
+        android:label="NoteHomeFragment" >
+        <argument
+            android:name="repositoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="repositoryName"
+            app:argType="string"
+            app:nullable="false"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_noteHomeFragment_to_noteWriteFragment"
+            app:destination="@id/noteWriteFragment" />
+        <action
+            android:id="@+id/action_noteHomeFragment_to_noteViewerFragment"
+            app:destination="@id/noteViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteWriteFragment"
+        android:name="com.note.note.presentation.content.write.NoteWriteFragment"
+        android:label="NoteWriteFragment" >
+        <argument
+            android:name="repositoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="noteId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_noteWriteFragment_to_photoViewerFragment"
+            app:destination="@id/photoViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoViewerFragment"
+        android:name="com.note.note.presentation.photoviewer.PhotoViewerFragment"
+        android:label="PhotoViewerFragment" >
+        <argument
+            android:name="imagePath"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteViewerFragment"
+        android:name="com.note.note.presentation.content.viewer.NoteViewerFragment"
+        android:label="NoteViewerFragment" >
+        <action
+            android:id="@+id/action_noteViewerFragment_to_noteWriteFragment"
+            app:destination="@id/noteWriteFragment" />
+        <action
+            android:id="@+id/action_noteViewerFragment_to_photoViewerFragment"
+            app:destination="@id/photoViewerFragment" />
+        <argument
+            android:name="noteId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="repositoryName"
+            app:argType="string" />
+    </fragment>
+</navigation>

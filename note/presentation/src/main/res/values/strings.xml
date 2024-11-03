@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_task">Create Note</string>
+    <string name="create">노트 생성</string>
+    <string name="edit">노트 수정</string>
+    <string name="delete">노트 삭제</string>
+    <string name="content_hint">내용을 입력해주세요.</string>
+    <string name="title_image">참고 이미지</string>
+    <string name="title_link">참고 링크</string>
+    <string name="branch_format">Branch: %s</string>
+
+    <string name="note_not_found">노트를 불러오는데 실패했습니다.</string>
+    <string name="image_remove">이미지 삭제</string>
+    <string name="image_content">이미지</string>
+    <string name="image_view">이미지 보기</string>
+    <string name="save_note">노트 저장</string>
+    <string name="saving_note">노트 저장중입니다.</string>
+    <string name="note_saved">노트가 저장되었습니다</string>
+    <string name="input_link_title">링크 저장하기</string>
+    <string name="input_link">저장하실 링크를 입력해주세요.</string>
+    <string name="note_deleted_complete">노트가 삭제되었습니다.</string>
+    <string name="menu_more">더보기</string>
+    <string name="branch_commit">Commit</string>
+    <string name="branch_merge">Merge</string>
+    <string name="delete_note_title">노트를 삭제하시겠습니까?</string>
+    <string name="delete_note_description">노트를 삭제하면 다시 복구 할 수 없습니다.</string>
+</resources>

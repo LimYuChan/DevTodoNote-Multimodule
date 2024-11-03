@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isLoading"
+            type="Boolean" />
+        <variable
+            name="enabled"
+            type="Boolean" />
+        <variable
+            name="buttonText"
+            type="String" />
+        <variable
+            name="isOutline"
+            type="Boolean" />
+        <import type="android.view.View"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:paddingHorizontal="@dimen/spacing_large"
+        tools:paddingVertical="@dimen/spacing_large"
+        tools:background="@color/background">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{enabled}"
+            android:text="@{isLoading ? @string/blank_text : buttonText}"
+            style="@style/BoldTextView"
+            tools:text="test"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:paddingVertical="@dimen/spacing_mid"
+            tools:background="@drawable/bg_action_button"
+            android:background="@{isOutline ? @drawable/bg_outline_button : @drawable/bg_action_button}"
+            android:id="@+id/btn_login"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            app:indicatorSize="20dp"
+            android:indeterminate="@{isLoading}"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            app:indicatorColor="@color/white"
+            android:elevation="3dp"
+            android:id="@+id/progress"/>
+
+    </FrameLayout>
+</layout>
